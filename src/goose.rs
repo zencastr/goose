@@ -899,6 +899,7 @@ impl GooseUser {
             .timeout(Duration::from_millis(timeout))
             // Enable gzip unless `--no-gzip` flag is enabled.
             .gzip(!configuration.no_gzip)
+            .redirect(reqwest::redirect::Policy::none())
             .build()?;
 
         Ok(GooseUser {
